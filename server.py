@@ -7,7 +7,7 @@ app = FastAPI()
 # CORS configuration to allow frontend to make requests
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://chat-bot-one-blush.vercel.app"],  # Your Vercel frontend URL
+    allow_origins=["https://chat-bot-delta-neon.vercel.app"],  # Your Vercel frontend URL
     allow_credentials=True,
     allow_methods=["*"],  # Allow all methods (GET, POST, etc.)
     allow_headers=["*"],  # Allow all headers
