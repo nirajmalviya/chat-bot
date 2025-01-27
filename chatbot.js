@@ -14,13 +14,13 @@ document.getElementById("send-btn").addEventListener("click", async () => {
 
   // Call API to get bot response
   try {
-    const response = await fetch("https://chat-bot-wtqw.onrender.com/chat", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ message: userInput }),
-    });
+    const response = await fetch("https://chat-bot-wtqw.onrender.com/chat", {  // Correct endpoint
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify({ message: userInput }),
+});
 
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
