@@ -20,6 +20,7 @@ async def chat_endpoint(request: Request):
     data = await request.json()
     user_message = data.get("message", "")
     
+try:
     result = client.predict(
         message=user_message,
         system_message="You are a friendly Chatbot.",
@@ -28,4 +29,6 @@ async def chat_endpoint(request: Request):
         top_p=0.95,
         api_name="/chat"
     )
-    return {"response": result}
+except Exception as e:
+    return {"error": str(e)}
+
