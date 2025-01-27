@@ -4,10 +4,10 @@ from gradio_client import Client
 
 app = FastAPI()
 
-# Configure CORS to allow requests from your Vercel deployment
+# Enable CORS to allow requests from your frontend
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://chat-bot-one-blush.vercel.app"],  # Replace with your frontend URL
+    allow_origins=["https://chat-bot-one-blush.vercel.app"],  # Adjust according to your frontend URL
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -15,7 +15,7 @@ app.add_middleware(
 
 client = Client("niraj128/chat-bot")
 
-@app.post("/chat")
+@app.post("/chat")  # This should be the correct route
 async def chat_endpoint(request: Request):
     data = await request.json()
     user_message = data.get("message", "")
