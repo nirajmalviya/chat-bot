@@ -1,6 +1,12 @@
 document.getElementById("send-btn").addEventListener("click", async () => {
   const userInput = document.getElementById("user-input").value;
-  if (!userInput) return;
+if (!userInput.trim()) {
+    const errorMessage = document.createElement("div");
+    errorMessage.className = "message error-message";
+    errorMessage.textContent = "Please enter a message.";
+    chatMessages.appendChild(errorMessage);
+    return;
+}
 
   // Append user message to chat
   const chatMessages = document.getElementById("chat-messages");
