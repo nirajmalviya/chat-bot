@@ -4,23 +4,22 @@ from gradio_client import Client
 
 app = FastAPI()
 
-# Enable CORS to allow requests from your frontend
+# CORS configuration to allow frontend to make requests
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://chat-bot-one-blush.vercel.app"],  # Adjust according to your frontend URL
+    allow_origins=["https://chat-bot-one-blush.vercel.app"],  # Your Vercel frontend URL
     allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_methods=["*"],  # Allow all methods (GET, POST, etc.)
+    allow_headers=["*"],  # Allow all headers
 )
 
 client = Client("niraj128/chat-bot")
 
-@app.post("/chat")  # This should be the correct route
+@app.post("/chat")
 async def chat_endpoint(request: Request):
     data = await request.json()
     user_message = data.get("message", "")
     
-    # Call Gradio client API
     result = client.predict(
         message=user_message,
         system_message="You are a friendly Chatbot.",
