@@ -36,13 +36,14 @@ document.getElementById("send-btn").addEventListener("click", async () => {
 
     // Scroll to the bottom of chat
     chatMessages.scrollTop = chatMessages.scrollHeight;
-  } catch (error) {
+  }catch (error) {
     console.error("Error:", error);
-    // Append error message to chat
-    const chatMessages = document.getElementById("chat-messages");
     const errorMessage = document.createElement("div");
     errorMessage.className = "message error-message";
-    errorMessage.textContent = `Error: ${error.message}`;
+    errorMessage.textContent =
+        "Failed to fetch bot response. Please try again later.";
     chatMessages.appendChild(errorMessage);
-  }
+}
+
+
 });
