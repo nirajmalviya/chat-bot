@@ -1,13 +1,14 @@
 from fastapi import FastAPI, Request
-from gradio_client import Client
 from fastapi.middleware.cors import CORSMiddleware
+from gradio_client import Client
 
 app = FastAPI()
 
-# CORS setup for frontend-backend communication
+# Configure CORS to allow requests from your Vercel deployment
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Set frontend's URL if not running locally
+    allow_origins=["https://chat-bot-one-blush.vercel.app"],  # Replace with your frontend URL
+    allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
