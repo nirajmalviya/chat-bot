@@ -14,7 +14,7 @@ document.getElementById("send-btn").addEventListener("click", async () => {
   
     // Call API to get bot response
     try {
-      const response = await fetch("https://your-backend.onrender.com/chat", {
+      const response = await fetch("https://chat-bot-wtqw.onrender.com", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
